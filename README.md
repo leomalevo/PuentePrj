@@ -1,6 +1,6 @@
 # Puente - Financial Market Tracking
 
-Aplicación web para seguimiento de mercados financieros y gestión de carteras de inversión.
+Aplicación web para seguimiento de mercados financieros.
 
 ## Descripción de la Solución
 
@@ -8,6 +8,7 @@ Puente es una plataforma que permite a los usuarios:
 - Monitorear instrumentos financieros (acciones y criptomonedas)
 - Realizar seguimiento de favoritos
 - Acceder a datos en tiempo real del mercado
+- Posee 2 tipos de usuarios, normal y Admin. El normal solo puede guardar en favoritos sus instrumentos, mientras que el Admin hacer eso y ademas gestionar los usuarios.
 
 La solución está dividida en dos partes principales:
 - Backend: API RESTful desarrollada en Node.js con Express
