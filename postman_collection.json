@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "puente-tracker-collection",
+		"name": "Puente Tracker API",
+		"description": "Colección de endpoints para la API de Puente Tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Autenticación",
+			"item": [
+				{
+					"name": "Registro de Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Usuario de Prueba\",\n    \"email\": \"usuario@prueba.com\",\n    \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/register",
+							"host": ["{{base_url}}"],
+							"path": ["api", "auth", "register"]
+						},
+						"description": "Registra un nuevo usuario en el sistema"
+					}
+				},
+				{
+					"name": "Login de Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"usuario@prueba.com\",\n    \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/login",
+							"host": ["{{base_url}}"],
+							"path": ["api", "auth", "login"]
+						},
+						"description": "Inicia sesión y obtiene tokens de acceso"
+					}
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refreshToken\": \"{{refresh_token}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/refresh-token",
+							"host": ["{{base_url}}"],
+							"path": ["api", "auth", "refresh-token"]
+						},
+						"description": "Obtiene un nuevo token de acceso usando el refresh token"
+					}
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/auth/logout",
+							"host": ["{{base_url}}"],
+							"path": ["api", "auth", "logout"]
+						},
+						"description": "Cierra la sesión del usuario"
+					}
+				}
+			]
+		},
+		{
+			"name": "Instrumentos",
+			"item": [
+				{
+					"name": "Obtener Todos los Instrumentos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/instruments",
+							"host": ["{{base_url}}"],
+							"path": ["api", "instruments"]
+						},
+						"description": "Obtiene la lista de todos los instrumentos disponibles"
+					}
+				},
+				{
+					"name": "Obtener Instrumento por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/instruments/:id",
+							"host": ["{{base_url}}"],
+							"path": ["api", "instruments", ":id"]
+						},
+						"description": "Obtiene los detalles de un instrumento específico"
+					}
+				},
+				{
+					"name": "Crear Instrumento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Nuevo Instrumento\",\n    \"symbol\": \"NI\",\n    \"type\": \"stock\",\n    \"price\": 100.50,\n    \"description\": \"Descripción del nuevo instrumento\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/instruments",
+							"host": ["{{base_url}}"],
+							"path": ["api", "instruments"]
+						},
+						"description": "Crea un nuevo instrumento (requiere rol admin)"
+					}
+				},
+				{
+					"name": "Actualizar Instrumento",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Instrumento Actualizado\",\n    \"price\": 150.75\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/instruments/:id",
+							"host": ["{{base_url}}"],
+							"path": ["api", "instruments", ":id"]
+						},
+						"description": "Actualiza un instrumento existente (requiere rol admin)"
+					}
+				},
+				{
+					"name": "Eliminar Instrumento",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/instruments/:id",
+							"host": ["{{base_url}}"],
+							"path": ["api", "instruments", ":id"]
+						},
+						"description": "Elimina un instrumento (requiere rol admin)"
+					}
+				}
+			]
+		},
+		{
+			"name": "Portafolio",
+			"item": [
+				{
+					"name": "Obtener Portafolio del Usuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/portfolio",
+							"host": ["{{base_url}}"],
+							"path": ["api", "portfolio"]
+						},
+						"description": "Obtiene el portafolio del usuario autenticado"
+					}
+				},
+				{
+					"name": "Agregar Instrumento al Portafolio",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"instrumentId\": \"instrument_id\",\n    \"quantity\": 10,\n    \"price\": 100.50\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/portfolio",
+							"host": ["{{base_url}}"],
+							"path": ["api", "portfolio"]
+						},
+						"description": "Agrega un instrumento al portafolio del usuario"
+					}
+				},
+				{
+					"name": "Actualizar Instrumento en Portafolio",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantity\": 15,\n    \"price\": 120.75\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/portfolio/:id",
+							"host": ["{{base_url}}"],
+							"path": ["api", "portfolio", ":id"]
+						},
+						"description": "Actualiza un instrumento en el portafolio del usuario"
+					}
+				},
+				{
+					"name": "Eliminar Instrumento del Portafolio",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/portfolio/:id",
+							"host": ["{{base_url}}"],
+							"path": ["api", "portfolio", ":id"]
+						},
+						"description": "Elimina un instrumento del portafolio del usuario"
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "your_access_token_here",
+			"type": "string"
+		},
+		{
+			"key": "refresh_token",
+			"value": "your_refresh_token_here",
+			"type": "string"
+		}
+	]
+} 
