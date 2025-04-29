@@ -23,11 +23,6 @@ La solución está dividida en dos partes principales:
   - Búsqueda por símbolo o nombre
   - Vista detallada con datos clave
 
-- **Gestión de Cartera**
-  - Seguimiento de inversiones
-  - Cálculo de rendimiento
-  - Historial de transacciones
-
 - **Seguridad**
   - Autenticación JWT
   - Almacenamiento seguro de contraseñas (hash + salt)
@@ -116,12 +111,6 @@ La aplicación estará disponible en:
 2. Usar la barra de búsqueda para encontrar instrumentos específicos
 3. Hacer clic en un instrumento para ver detalles
 4. Marcar instrumentos como favoritos
-
-### Gestión de Cartera
-1. Acceder a la sección "Portfolio"
-2. Agregar nuevas inversiones
-3. Ver rendimiento y estadísticas
-4. Exportar reportes
 
 ## Decisiones Técnicas y Trade-offs
 
