@@ -54,16 +54,12 @@ La solución está dividida en dos partes principales:
 ## Instrucciones de Instalación
 
 ### 1. Clonar el Repositorio
-```bash
-git clone https://github.com/tu-usuario/puente.git
-cd puente
-```
+
+- Al bajar el repositorio, ya estaria bajando el frontend (dentro de la carpeta client)
 
 ### 2. Configurar el Backend
-```bash
-cd server
-npm install
-```
+
+- Al bajar el repositorio, ya estaria bajando el backend (dentro de la carpeta server)
 
 Crear archivo `.env` en la raíz del backend:
 ```env
