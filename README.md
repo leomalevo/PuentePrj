@@ -154,6 +154,9 @@ La aplicación estará disponible en:
 ### Screenshots
 - En la folder Screenshots hay algunas capturas de pantalla de la aplicación
 
+### Postman Requests
+- En el file postman_collection.json se encuentran las request necesarias para probar los endpoints en postman
+
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles. 
