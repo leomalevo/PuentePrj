@@ -6,7 +6,6 @@ Aplicación web para seguimiento de mercados financieros y gestión de carteras 
 
 Puente es una plataforma que permite a los usuarios:
 - Monitorear instrumentos financieros (acciones y criptomonedas)
-- Gestionar carteras de inversión
 - Realizar seguimiento de favoritos
 - Acceder a datos en tiempo real del mercado
 
