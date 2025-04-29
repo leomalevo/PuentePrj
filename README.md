@@ -1,4 +1,4 @@
-# Puente - Financial Market Tracking & Portfolio Management
+# Puente - Financial Market Tracking
 
 Aplicación web para seguimiento de mercados financieros y gestión de carteras de inversión.
 
